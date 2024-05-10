@@ -1,7 +1,7 @@
 import React from "react";
 import style from "../Main/Main.module.css";
 import Card from "../Card/Card";
-import Graph from "../Graph/Graph";
+
 
 const Main = ({
   handleExpenseListUpdate,
