@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import Main from "./components/Main/Main";
+import Card from "./components/Card/Card"
 import Transactions from "./components/Transactions/Transactions";
 
 
@@ -37,7 +37,7 @@ const Home = () => {
     <div>
       <h1 className="text">Expense Tracker</h1>
 
-      <Main
+      <Card
         handleExpenseListUpdate={handleExpenseListUpdate}
         categories={categories}
         expenses={expenses}
