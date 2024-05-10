@@ -1,0 +1,21 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-left: 20px;
+  margin-top: 20px;
+  margin-right: 20px;
+}
+.text {
+  font-family: Ubuntu;
+  font-size: 28px;
+  font-style: italic;
+  font-weight: 700;
+  line-height: 32.17px;
+  text-align: left;
+  color: rgba(255, 255, 255, 1);
+  margin-bottom: 10px;
+}
+.rapper {
+  width: 800px;
+}
