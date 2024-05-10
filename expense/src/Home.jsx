@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 
 import Main from "./components/Main/Main";
-import Section from "./components/Section/Section";
+import Transactions from "./components/Transactions/Transactions";
+
+
 const Home = () => {
   const [walletBalance, setWalletBalance] = useState(
     localStorage.getItem("walletBalance")
@@ -44,7 +46,17 @@ const Home = () => {
         walletBalance={walletBalance}
         setWalletBalance={setWalletBalance}
       />
-      <Section />
+      {expenses.length > 0 && (
+       
+
+        
+        <Transactions
+          expenseData={expenses}
+          handleExpenseListUpdate={handleExpenseListUpdate}
+          categories={categories}
+        />
+        
+      )}
     </div>
   );
 };

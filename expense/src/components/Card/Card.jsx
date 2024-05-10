@@ -104,6 +104,8 @@ const Card = ({
           </button>
         </div>
       </div>
+
+      
       {/* //NOTE - Add income in the wallet */}
       {isExpenseModalOpen && (
         <div className={style.model}>

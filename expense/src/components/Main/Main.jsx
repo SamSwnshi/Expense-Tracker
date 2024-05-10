@@ -23,7 +23,7 @@ const Main = ({
         walletBalance={walletBalance}
         setWalletBalance={setWalletBalance}
       />
-      <Graph />
+      {/* <Graph data={expenses} /> */}
     </div>
   );
 };
