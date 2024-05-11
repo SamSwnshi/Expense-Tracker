@@ -1,26 +1,21 @@
 import React, { useState } from "react";
 import Modal from "react-modal";
-import {
-  FaUtensils,
-  FaFilm,
-  FaPlane,
-  FaShoppingCart,
-  FaShoppingBasket,
-  FaEllipsisH,
-  FaEdit,
-  FaTrash,
-} from "react-icons/fa";
+import { IoFastFood } from "react-icons/io5";
+import { ImCancelCircle } from "react-icons/im";
+import { BsFillPencilFill } from "react-icons/bs";
+import { SiThemoviedatabase } from "react-icons/si";
+import { MdCardTravel } from "react-icons/md";
+import { GiShoppingBag } from "react-icons/gi";
+
 import "./Transactions.css";
 
 Modal.setAppElement("#root");
 
 const icons = {
-  Food: <FaUtensils />,
-  Entertainment: <FaFilm />,
-  Travel: <FaPlane />,
-  Shopping: <FaShoppingCart />,
-  Grocery: <FaShoppingBasket />,
-  Others: <FaEllipsisH />,
+  Food: <IoFastFood />,
+  Entertainment: <SiThemoviedatabase />,
+  Travel: <MdCardTravel />,
+  Shopping: <GiShoppingBag />,
 };
 
 const modalStyle = {
@@ -78,7 +73,7 @@ const Transactions = ({
   );
 
   const getCategoryIcon = (category) => {
-    return icons[category] || <FaEllipsisH />;
+    return icons[category];
   };
 
   const formatDate = (dateString) => {
@@ -140,7 +135,6 @@ const Transactions = ({
   return (
     <>
       <div className="expense-container">
-        
         <br />
         <div className="expense-table-container">
           {currentItems.map((item, index) => (
@@ -161,16 +155,16 @@ const Transactions = ({
                   ₹{parseInt(item.price, 10).toLocaleString()}
                 </div>
                 <button
-                  className="action-btn edit-btn"
-                  onClick={() => openModal(item)}
-                >
-                  <FaEdit />
-                </button>
-                <button
                   className="action-btn delete-btn"
                   onClick={() => handleDelete(item.id)}
                 >
-                  <FaTrash />
+                  <ImCancelCircle />
+                </button>
+                <button
+                  className="action-btn edit-btn"
+                  onClick={() => openModal(item)}
+                >
+                  <BsFillPencilFill />
                 </button>
               </div>
             </div>

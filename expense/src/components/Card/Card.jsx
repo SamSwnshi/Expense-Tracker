@@ -2,9 +2,6 @@ import React, { useState, useEffect } from "react";
 import Modal from "react-modal";
 import "./card.css";
 
-
-
-// Ensure the modal is bound to your appElement for accessibility reasons
 Modal.setAppElement("#root");
 
 const Card = ({
@@ -19,7 +16,6 @@ const Card = ({
   const [isExpenseModalOpen, setIsExpenseModalOpen] = useState(false);
   const [isIncomeModalOpen, setIsIncomeModalOpen] = useState(false);
   const [newExpense, setNewExpense] = useState({
-   
     title: "",
     price: "",
     category: "",
@@ -41,7 +37,6 @@ const Card = ({
     if (walletBalance < newExpense.price) {
       return alert("Couldn't add expense, insufficient wallet balance.");
     }
-
 
     const updatedBalance = walletBalance - newExpense.price;
     setWalletBalance(updatedBalance);
@@ -90,7 +85,7 @@ const Card = ({
       bottom: "auto",
       marginRight: "-50%",
       transform: "translate(-50%, -50%)",
-      width: "80%",
+      width: "100%",
       maxWidth: "500px",
       background: "rgba(255, 255, 255, 0.6)",
       borderRadius: "10px",
@@ -101,34 +96,33 @@ const Card = ({
   };
 
   return (
-    <div className="wallet-container glassmorphism">
-      <div className="wallet-income-expense-container">
-        <div className="wallet-card-container glassmorphism">
+    <div className="container ">
+      <div className="expense">
+        <div className="card-container ">
           <h2>
             Wallet Balance:{" "}
             <span className="income-amount"> ₹{walletBalance} </span>
           </h2>
           <button
-            className="glassmorphism"
+            className="btn-income"
             onClick={() => setIsIncomeModalOpen(true)}
           >
             + Add Income
           </button>
         </div>
-        <div className="wallet-card-container glassmorphism">
+        <div className="card-container ">
           <h2>
             Expenses:
             <span className="expense-amount"> ₹{getTotalExpenses()} </span>
           </h2>
           <button
-            className="glassmorphism"
+            className="btn-expense"
             onClick={() => setIsExpenseModalOpen(true)}
           >
             + Add Expense
           </button>
         </div>
       </div>
-      
 
       {/* Modal for adding income */}
       <Modal
@@ -137,30 +131,32 @@ const Card = ({
         style={modalStyle}
         contentLabel="Add New Income"
       >
-        <h2 className="modal-header">Add New Income</h2>
-        <form className="modal-form-income" onSubmit={addIncome}>
-          <input
-            className="glassmorphismButton"
-            name="income"
-            placeholder="Income amount"
-            type="number"
-            value={newIncome}
-            onChange={(e) => handleInputChange(e, false)}
-            required
-          />
-          <div>
-            <button className="glassmorphismButton" type="submit">
-              Add Income
-            </button>
-            <button
-              className="glassmorphismButton"
-              type="button"
-              onClick={() => setIsIncomeModalOpen(false)}
-            >
-              Cancel
-            </button>
-          </div>
-        </form>
+        <div className="main-container">
+          <h2 className="modal-header">Add New Income</h2>
+          <form className="form-income" onSubmit={addIncome}>
+            <input
+              className="input"
+              name="income"
+              placeholder="Income amount"
+              type="number"
+              value={newIncome}
+              onChange={(e) => handleInputChange(e, false)}
+              required
+            />
+            <div className="btn">
+              <button className="btn1-income" type="submit">
+                Add Income
+              </button>
+              <button
+                className="btn-cancel"
+                type="button"
+                onClick={() => setIsIncomeModalOpen(false)}
+              >
+                Cancel
+              </button>
+            </div>
+          </form>
+        </div>
       </Modal>
 
       {/* Modal for adding expenses */}
@@ -170,60 +166,64 @@ const Card = ({
         style={modalStyle}
         contentLabel="Add New Expense"
       >
-        <h2 className="modal-header">Add New Expense</h2>
-        <form className="modal-form-expense" onSubmit={addExpense}>
-          <input
-            name="title"
-            placeholder="Title"
-            value={newExpense.title}
-            onChange={handleInputChange}
-            requireds
-          />
+        <div className="addexpense">
+          <h2 className="modal-header">Add New Expense</h2>
+          <form  onSubmit={addExpense}>
+            <input
+              name="title"
+              placeholder="Title"
+              value={newExpense.title}
+              onChange={handleInputChange}
+              requireds
+            />
 
-          <input
-            name="price"
-            placeholder="Price"
-            type="number"
-            value={newExpense.price}
-            onChange={handleInputChange}
-            required
-          />
-          <select
-            className="select-option"
-            name="category"
-            value={newExpense.category}
-            onChange={handleInputChange}
-            required
-          >
-            <option value="">Select Category</option>{" "}
-            {/* Default empty option */}
-            {categories.map((category, index) => (
-              <option key={index} value={category}>
-                {category}
-              </option>
-            ))}
-          </select>
-          <input
-            name="date"
-            placeholder="Date"
-            type="date"
-            value={newExpense.date}
-            onChange={handleInputChange}
-            required
-          />
-          <div>
-            <button className="glassmorphismButton" type="submit">
-              Add Expense
-            </button>
-            <button
-              className="glassmorphismButton"
-              type="button"
-              onClick={() => setIsExpenseModalOpen(false)}
+            <input
+              name="price"
+              placeholder="Price"
+              type="number"
+              value={newExpense.price}
+              onChange={handleInputChange}
+              required
+            />
+            <select
+              
+              name="category"
+              value={newExpense.category}
+              onChange={handleInputChange}
+              className="selectoption"
+              required
             >
-              Cancel
-            </button>
-          </div>
-        </form>
+              <option value="">Select Category</option>{" "}
+              {/* Default empty option */}
+              {categories.map((category, index) => (
+                <option key={index} value={category}>
+                  {category}
+                </option>
+              ))}
+            </select>
+            <input
+            className="selectoption"
+              name="date"
+              placeholder="Date"
+              type="date"
+              value={newExpense.date}
+              onChange={handleInputChange}
+              required
+            />
+            <div className="btn">
+              <button className="btn2-income" type="submit">
+                Add Expense
+              </button>
+              <button
+                 className="btn-cancel"
+                type="button"
+                onClick={() => setIsExpenseModalOpen(false)}
+              >
+                Cancel
+              </button>
+            </div>
+          </form>
+        </div>
       </Modal>
     </div>
   );

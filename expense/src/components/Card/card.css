@@ -1,75 +1,141 @@
-.wallet-container {
-  height: fit-content;
-  margin: 40px;
-  padding: 20px; /* Adjust as needed */
+.container {
+  height: 269px;
+  margin: 20px;
+  padding: 20px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
+  justify-content: center;
+  background: rgba(98, 98, 98, 1);
+  border-radius: 10px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
-.glassmorphism {
-  background: rgba(255, 255, 255, 0.2); /* Adjust the alpha value for opacity */
-  border-radius: 10px; /* Rounded corners */
-  border: 1px solid rgba(255, 255, 255, 0.18); /* Subtle white border */
-  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
-  backdrop-filter: blur(10px); /* Blur the background behind the element */
-}
-
-.glassmorphismButton,
-input,
-select,
-select > option {
-  background: rgba(255, 255, 255, 0.2); /* Adjust the alpha value for opacity */
-  border-radius: 10px; /* Rounded corners */
-  border: 1px solid rgba(255, 255, 255, 0.18); /* Subtle white border */
-  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
-  backdrop-filter: blur(10px); /* Blur the background behind the element */
-  margin: 10px;
-  padding: 15px;
-  font-weight: bold;
-}
-
-.wallet-card-container {
-  margin: 40px;
-  padding: 20px;
-  min-width: 300px;
+.card-container {
+  width: 355px;
+  height: 181px;
   border-radius: 12px;
   display: flex;
   flex-direction: column;
-  align-items: space-between;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  background: rgba(155, 155, 155, 1);
+  border-radius: 10px;
+  color: rgba(255, 255, 255, 1);
+  gap: 20px;
+  font-family: Ubuntu;
+  font-weight: 400;
+  line-height: 34.47px;
+}
+.btn-income {
+  width: 168px;
+  height: 38px;
+  background: linear-gradient(90deg, #b5dc52 0%, #89e148 100%);
+  border: none;
+  border-radius: 15px;
+  color: #ffffff;
+  line-height: 18.38px;
+  font-size: 16px;
+}
+.btn-expense {
+  width: 168px;
+  height: 38px;
+  background: linear-gradient(90deg, #ff9595 0%, #ff4747 80%, #ff3838 100%);
+  border: none;
+  border-radius: 15px;
+  color: #ffffff;
+  line-height: 18.38px;
+  font-size: 16px;
+}
+
+.expense {
+  gap: 2rem;
+  display: flex;
   justify-content: space-between;
 }
 
-.wallet-income-expense-container {
-  width: 50%;
-  display: flex;
-}
-
-.wallet-card-container > button {
-  width: 60%;
-  margin: 10px auto;
-  height: 50px;
-  cursor: pointer;
-}
-
 .income-amount {
-  color: green;
+  color: rgba(157, 255, 91, 1);
 }
 
 .expense-amount {
-  color: red;
+  color: rgba(244, 187, 74, 1);
 }
 
-.modal-header {
-  margin: 0 auto;
-}
-
-.modal-form-income {
+.main-container {
+  width: 460px;
+  height: 164px;
+  border-radius: 15px;
   display: flex;
-  padding: 10px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
 }
-
+.form-income {
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2px;
+}
 .select-option > option {
   padding: 5px;
+}
+
+.input {
+  width: 200px;
+  height: 51px;
+  top: 377px;
+  left: 401px;
+  gap: 0px;
+  border-radius: 15px;
+  opacity: 0px;
+}
+.btn{
+  display: flex;
+  gap: 20px;
+}
+.btn1-income {
+  width: 100px;
+  height: 51px;
+  top: 378px;
+  left: 630px;
+  gap: 0px;
+  border-radius: 15px;
+  background: linear-gradient(0deg, #f4bb4a, #f4bb4a);
+  border: none;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+color: #ffff;
+}
+.btn2-income {
+  width: 223px;
+  height: 51px;
+  top: 378px;
+  left: 630px;
+  gap: 0px;
+  border-radius: 15px;
+  background: linear-gradient(0deg, #f4bb4a, #f4bb4a);
+  border: none;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+color: #ffff;
+}
+.btn-cancel {
+  width: 70px;
+  height: 51px;
+  border-radius: 15px;
+  border: none;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+
+}
+.selectoption{
+color: grey;
+  width: 210px;
+}
+
+
+.addexpense{
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+gap: 10px;
 }
